@@ -1,0 +1,32 @@
+form {
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+}
+h2 {
+    width: 100%;
+    text-align: center;
+}
+label {
+    display: block;
+    margin: 8px 0 4px;
+    padding: 4px;
+}
+input {
+    padding: 8px;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    outline: none;
+}
+button {
+    padding: 5px;
+    background-color: #007aff;
+    outline: none;
+}
+.error-message {
+    color: red;
+    font-size: 11px;
+    margin: 4px 0;
+}
