@@ -1,37 +1,40 @@
-import React, {Component} from "react"
+import React, {Component, ChangeEvent, FormEvent} from "react"
 interface State {
-    male: "male" | "female" | "other"
+    selected: "male" | "female" | "other"
+    gender: "male" | "female" | "other"
 }
 
 class FormGender extends Component<{}, State> {
     constructor(props: {}) {
         super(props);
         this.state = {
-            male: "male"
+            selected: "male",
+            gender: "male"
         }
     }
     handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        this.setState({ male: e.target.value as "male" | "female" | "other" });
+        this.setState({ selected: e.target.value as "male" | "female" | "other" })
     }
     submitForm = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
+        this.setState({ gender: this.state.selected })
     }
     renderGender = () => {
-        if (this.state.male === "male") return "Nam"
-        else if (this.state.male === "female") return "Nữ"
+        if (this.state.gender === "male") return "Nam"
+        else if (this.state.gender === "female") return "Nữ"
         else return "Khác"
     }
     render(): React.ReactNode {
         return(
-            <form action="">
+            <form onSubmit={this.submitForm}>
                 <p>Giới tính: {this.renderGender()} </p>
-                <input type="radio" name="gender" value="male" checked={this.state.male === "male"} onChange={this.handleChange} />
+                <input type="radio" name="gender" value="male" checked={this.state.selected === "male"} onChange={this.handleChange} />
                 <label htmlFor="male">Nam</label><br />
-                <input type="radio" name="gender" value="female" checked={this.state.male === "female"} onChange={this.handleChange} />
+                <input type="radio" name="gender" value="female" checked={this.state.selected === "female"} onChange={this.handleChange} />
                 <label htmlFor="female">Nữ</label><br />
-                <input type="radio" name="gender" value="other" checked={this.state.male === "other"} onChange={this.handleChange} />
+                <input type="radio" name="gender" value="other" checked={this.state.selected === "other"} onChange={this.handleChange} />
                 <label htmlFor="other">Khác</label><br />
-                <input type="submit" onClick={this.submitForm} />
+                <input type="submit" value="Submit" />
             </form>
         )
     }

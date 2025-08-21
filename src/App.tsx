@@ -4,9 +4,9 @@ import './App.css'
 // import Ex03 from './component/Ex03'
 // import Ex04 from './component/Ex04'
 // import Ex05 from './component/Ex05'
-// import Ex06 from './component/Ex06'
+import Ex06 from './component/Ex06'
 // import Ex07 from './component/Ex07'
-import Ex08 from './component/Ex08'
+// import Ex08 from './component/Ex08'
 
 function App() {
   return (
@@ -15,9 +15,9 @@ function App() {
     // <Ex03/>
     // <Ex04/>
     // <Ex05/>
-    // <Ex06/>
+    <Ex06/>
     // <Ex07 />
-    <Ex08 />
+    // <Ex08 />
   )
 }
 
